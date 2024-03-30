@@ -20,6 +20,9 @@ function Investigation({ investigationId }) {
   }
 
   const investigationData = investigation.data.attributes;
+  // go to this route
+  // pass the investigation to other components
+  // one call -> get all the data instead of multiple calls
 
   return (
     <>
@@ -28,9 +31,10 @@ function Investigation({ investigationId }) {
       </h4>
 
       <div class="row">
-        <div class="col s6">
+        <div class="col s6"> 
           {/* first component */}
           <InvestigationOverview investigation={investigation} />
+          {/* JSX component */}
         </div>
         <div class="col s6">
           {/* second component */}
@@ -38,6 +42,8 @@ function Investigation({ investigationId }) {
             crimes={investigationData.crimes}
             investigationId={investigationId}
           />
+          {/* also include how to editing and adding crimes */}
+          {/* passing in 1. crime objects 2. investigatioin id */}
         </div>  
       </div>
 
@@ -47,6 +53,7 @@ function Investigation({ investigationId }) {
   );
 }
 
+// not required but good practice
 Investigation.propTypes = {
   investigationId: PropTypes.string.isRequired,
 };

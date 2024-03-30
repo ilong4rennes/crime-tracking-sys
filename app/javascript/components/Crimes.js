@@ -21,6 +21,7 @@ function CrimeEditor({ close, onSave, currentCrimes }) {
             label: `${name} (${felony ? "felony" : "misdemeanor"})`,
             disabled: crimeAlreadyExists,
           };
+          // gray out the crime if it already exists
         })
       );
     });
@@ -33,11 +34,13 @@ function CrimeEditor({ close, onSave, currentCrimes }) {
         onChange={({ value }) => setCrimeId(value)}
         isOptionDisabled={(option) => option.disabled}
       />
+      {/* print out the options */}
       <button onClick={() => onSave(crimeId)} disabled={!crimeId}>
         Save
       </button>{" "}
       <button onClick={close}>Cancel</button>
     </>
+    // 就是右上角的框
   );
 }
 
@@ -52,6 +55,13 @@ function Crimes({ crimes, investigationId }) {
   const [currentCrimes, setCurrentCrimes] = React.useState(crimes);
 
   function onSave(crimeId) {
+    // on save = create action
+    // insert new crime = POST
+    // Why is it a post?
+    // Using a POST request because it is creating a new resource on the server. 
+    // In this case, it is creating a new crime investigation associated with an investigation ID. 
+    // The post function is likely a custom function from the ../api module that handles making HTTP POST requests.
+
     post(`/v1/investigations/${investigationId}/crime_investigations`, {
       crime_investigation: {
         crime_id: crimeId,
@@ -95,8 +105,9 @@ function Crimes({ crimes, investigationId }) {
                 currentCrimes={currentCrimes}
               />
             )}
+            {/* Crime Editor -- DosageSection.js and DosageEditor in PATS */}
             {!editorOpen && <button onClick={() => setEditorOpen(true)}>Add</button>}
-
+            {/* Add button */}
         </div>
       </div>
     </>

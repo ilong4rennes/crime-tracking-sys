@@ -29,7 +29,20 @@ Rails.application.routes.draw do
   # Routes for regular HTML views go here...
     # Semi-static page routes
 
-    
+    resources :sessions
+    resources :officers
+    resources :units
+    resources :crimes
+    resources :investigations
+    resources :criminals
+    # get 'officer/new', to: 'officers#new', as: :signup
+    # get 'officer/edit', to: 'officers#edit', as: :edit_current_user
+    get 'login', to: 'sessions#new', as: :login
+    get 'logout', to: 'sessions#destroy', as: :logout
+
+    get 'home', to: 'home#index', as: :home
+
+    patch 'investigations/:id/close', to: 'investigations#close', as: :close_investigation
 
     # Authentication routes
 

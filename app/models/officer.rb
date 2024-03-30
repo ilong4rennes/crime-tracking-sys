@@ -55,6 +55,11 @@ class Officer < ApplicationRecord
     current
   end
 
+  def can_be_destroyed?
+    # Example condition: an officer cannot be destroyed if they have current assignments
+    assignments.where(end_date: nil).empty?
+  end
+
   # Callbacks
   before_save    -> { strip_nondigits_from(:ssn) }
 
