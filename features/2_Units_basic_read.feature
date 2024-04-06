@@ -41,6 +41,7 @@ Feature: Read units -- basic
     And I should see "Detective Sergeant"
     And I should see "Captain"
     And I should see "Active Assignments"
+    Then show me the page
     And I should see "1"
     And I should not see "Homicide"
     And I should not see "true"

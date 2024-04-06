@@ -14,7 +14,7 @@
         <tr>
           <td><%= officer.name %></td>
           <td><%= officer.rank %></td>
-          <td><%= officer.assignments.count %></td>
+          <td><%= officer.assignments.current.count %></td>
         </tr>
       <% end %>
     </tbody>
