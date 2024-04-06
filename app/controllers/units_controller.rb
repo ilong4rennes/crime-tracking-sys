@@ -39,8 +39,8 @@ class UnitsController < ApplicationController
         if @unit.destroy
           redirect_to units_path, notice: "Removed #{@unit.name} from the system."
         else
-          @active_units = Unit.where(active: true)
-          @inactive_units = Unit.where(active: false)
+          @active_units = Unit.where(active: true).paginate(page: params[:page]).per_page(15)
+          @inactive_units = Unit.where(active: false).paginate(page: params[:page]).per_page(15)
           render :index
         end
       end
