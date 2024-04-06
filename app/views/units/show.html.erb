@@ -1,25 +1,5 @@
-<h1>Active Officers in <%= @unit.name %> Unit</h1>
-
-<% if @officers.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Rank</th>
-        <th>Active Assignments</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @officers.each do |officer| %>
-        <tr>
-          <td><%= officer.name %></td>
-          <td><%= officer.rank %></td>
-          <td><%= officer.assignments.count %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= will_paginate @officers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
-<% else %>
-  <p>There are no active officers currently in this unit.</p>
-<% end %>
+<%= render partial: "partials/show_structure", locals: {model_name: "unit", 
+                                                         object: @unit,
+                                                         primary: "unit_data", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>
