@@ -9,9 +9,9 @@ class OfficersController < ApplicationController
     end
   
     def show
-      # Current and past assignments can be set up here if they're not directly accessible via @officer in the view
-      @current_assignments = @officer.assignments.current
-      @past_assignments = @officer.assignments.past
+      @officer = Officer.find(params[:id])
+      @current_assignments = @officer.assignments.current.paginate(page: params[:page]).per_page(15)
+      @past_assignments = @officer.assignments.past.paginate(page: params[:page]).per_page(15)
     end
   
     def new
@@ -39,9 +39,12 @@ class OfficersController < ApplicationController
     end
   
     def destroy
+      @officer = Officer.find(params[:id])
       if @officer.destroy
         redirect_to officers_path, notice: "Removed #{@officer.proper_name} from the system."
       else
+        @current_assignments = @officer.assignments.current.paginate(page: params[:page], per_page: 15)
+        @past_assignments = @officer.assignments.past.paginate(page: params[:page], per_page: 15)
         render :show
       end
     end

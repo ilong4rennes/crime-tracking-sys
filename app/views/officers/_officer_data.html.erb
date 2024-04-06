@@ -13,19 +13,22 @@
       <%= @officer.active ? "Yes" : "No" %>
       <br>
     
-    <% if @officer.assignments.current.any? %>
-    <b>Current Assignments:&nbsp;&nbsp;</b>
-      <% @officer.assignments.current.each do |assignment| %>
-        <%= assignment.investigation.title %><br />
-      <% end %><br />
+    <% if @current_assignments.any? %>
+        <b>Current Assignments:&nbsp;&nbsp;</b>
+        <% @current_assignments.each do |assignment| %>
+            <%= assignment.investigation.title %><br />
+        <% end %><br />
+    <%= will_paginate @current_assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>   
     <% end %>
 
-    <% if @officer.assignments.past.any? %>
-    <b>Past Assignments:&nbsp;&nbsp;</b>
-      <% @officer.assignments.past.each do |assignment| %>
-        <%= assignment.investigation.title %><br />
-      <% end %><br />
+    <% if @past_assignments.any? %>
+        <b>Past Assignments:&nbsp;&nbsp;</b>
+        <% @past_assignments.each do |assignment| %>
+            <%= assignment.investigation.title %><br />
+        <% end %><br />
+    <%= will_paginate @past_assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
     <% end %>
+
 
   </div>
 </div>
