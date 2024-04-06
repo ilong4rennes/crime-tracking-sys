@@ -1,6 +1,6 @@
 <h1>Active Officers in <%= @unit.name %> Unit</h1>
 
-<% if @unit.officers.any? %>
+<% if @officers.any? %>
   <table>
     <thead>
       <tr>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @unit.officers.each do |officer| %>
+      <% @officers.each do |officer| %>
         <tr>
           <td><%= officer.name %></td>
           <td><%= officer.rank %></td>
@@ -19,7 +19,7 @@
       <% end %>
     </tbody>
   </table>
-  
+  <%= will_paginate @officers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
 <% else %>
   <p>There are no active officers currently in this unit.</p>
 <% end %>

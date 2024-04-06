@@ -21,7 +21,9 @@ class UnitsController < ApplicationController
     end
   
     def show
-      @officers = @unit.officers
+      @unit = Unit.find(params[:id])
+      @officers = @unit.officers.paginate(page: params[:page], per_page: 15) 
+
     end
   
     def edit
