@@ -4,8 +4,8 @@ class OfficersController < ApplicationController
     authorize_resource
   
     def index
-      @active_officers = Officer.active.alphabetical
-      @inactive_officers = Officer.inactive.alphabetical
+      @active_officers = Officer.active.alphabetical.paginate(page: params[:page]).per_page(15)
+      @inactive_officers = Officer.inactive.alphabetical.paginate(page: params[:page]).per_page(15)
     end
   
     def show

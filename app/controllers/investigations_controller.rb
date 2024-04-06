@@ -4,8 +4,8 @@ class InvestigationsController < ApplicationController
     authorize_resource
   
     def index
-      @open_investigations = Investigation.is_open.chronological
-      @closed_investigations = Investigation.is_closed.chronological
+      @open_investigations = Investigation.is_open.chronological.paginate(page: params[:page]).per_page(15)
+      @closed_investigations = Investigation.is_closed.chronological.paginate(page: params[:page]).per_page(15)
       @closed_unsolved = Investigation.unsolved
       @with_batman = Investigation.with_batman
       @unassigned_cases = Investigation.unassigned

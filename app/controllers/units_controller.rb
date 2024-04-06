@@ -2,8 +2,8 @@ class UnitsController < ApplicationController
     before_action :set_unit, only: [:show, :edit, :update, :destroy]
   
     def index
-      @active_units = Unit.where(active: true)
-      @inactive_units = Unit.where(active: false)
+      @active_units = Unit.where(active: true).paginate(page: params[:page]).per_page(15)
+      @inactive_units = Unit.where(active: false).paginate(page: params[:page]).per_page(15)
     end
   
     def new

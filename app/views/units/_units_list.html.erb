@@ -1,13 +1,12 @@
-
-  <h4>Active Units in GCPD</h4>
-  <table class="striped highlight">
+<h4>Active Units in GCPD</h4>
+    <table class="striped highlight">
     <thead>
-      <th>Name</th>
-      <th>Active?</th>
-      <th class="align_center">Options</th>
+        <th>Name</th>
+        <th>Active?</th>
+        <th class="align_center">Options</th>
     </thead>
     <% @active_units.each do |unit| %>
-      <tr>
+        <tr>
         <td><%= link_to unit.name, unit_path(unit) %></td>
         <td>
             <% if unit.active? %>
@@ -16,8 +15,7 @@
                 No
             <% end %>
         </td>
-       </tr>
+        </tr>
     <% end %>
-  </table>
-
-
+</table>
+<%= will_paginate @active_units, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
