@@ -1,0 +1,24 @@
+<h1>Active Officers in <%= @unit.name %> Unit</h1>
+
+<% if @unit.officers.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Active Assignments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @unit.officers.each do |officer| %>
+        <tr>
+          <td><%= officer.name %></td>
+          <td><%= officer.rank %></td>
+          <td><%= officer.assignments.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>There are no active officers currently in this unit.</p>
+<% end %>

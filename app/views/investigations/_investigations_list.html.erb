@@ -1,0 +1,18 @@
+<% if @open_investigations.empty? %>
+  <h4>No open cases at this time.</h4>
+<% else %>
+  <h4>Open Investigations in GCPD</h4>
+  <table class="striped highlight">
+    <thead>
+      <th>Title</th>
+      <th>Date open</th>
+      <th class="align_center">Options</th>
+    </thead>
+    <% @open_investigations.each do |investigation| %>
+      <tr>
+        <td><%= link_to investigation.title, investigation_path(investigation) %></td>
+        <td><%= link_to investigation.date_opened.strftime("%m/%d/%y"), investigation_path(investigation) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

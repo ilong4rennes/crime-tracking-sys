@@ -100,3 +100,5 @@ end
 gem "shakapacker", "= 6.5"
 
 gem "react-rails", "= 2.6"
+
+gem "best_in_place", git: "https://github.com/mmotherwell/best_in_place"

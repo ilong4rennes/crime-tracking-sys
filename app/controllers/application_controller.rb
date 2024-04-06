@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Go away or I shall taunt you a second time."
+    flash[:error] = "You are not authorized to take this action."
     redirect_to home_path
   end
 
@@ -24,13 +23,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def check_login
-    redirect_to login_path, alert: "You must be logged in to access this section" unless current_officer_present?
+    redirect_to login_path, alert: "You must be logged in to access this section" if current_user.nil?
   end
-
-  def current_officer_present?
-     session[:officer_id].present?
-  end
-
-  
   
 end

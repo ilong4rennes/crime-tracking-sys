@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
     end
     
     def create
-    #   user = Officer.authenticate(params[:username], params[:password])
     officer = Officer.find_by(username: params[:username])
       if officer && officer.authenticate(params[:password])
         session[:officer_id] = officer.id

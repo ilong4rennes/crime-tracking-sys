@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-content">
+    <h5><%= best_in_place @officer, :first_name, as: :input %> 
+        <%= best_in_place @officer, :last_name, as: :input %></h5><br />
+
+    <b>Current unit:&nbsp;&nbsp;</b><br>
+      <%= @officer.unit.name %><br /><br />
+      
+    <b>Current rank:&nbsp;&nbsp;</b><br>
+      <%= @officer.rank %><br /><br />
+
+    <b>Active duty?&nbsp;&nbsp;</b>
+      <%= @officer.active ? "Yes" : "No" %>
+      <br>
+    
+    <% if @officer.assignments.current.any? %>
+    <b>Current Assignments:&nbsp;&nbsp;</b>
+      <% @officer.assignments.current.each do |assignment| %>
+        <%= assignment.investigation.title %><br />
+      <% end %><br />
+    <% end %>
+
+    <% if @officer.assignments.past.any? %>
+    <b>Past Assignments:&nbsp;&nbsp;</b>
+      <% @officer.assignments.past.each do |assignment| %>
+        <%= assignment.investigation.title %><br />
+      <% end %><br />
+    <% end %>
+
+  </div>
+</div>

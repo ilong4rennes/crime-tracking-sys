@@ -34,26 +34,13 @@ class UnitsController < ApplicationController
         render :edit
       end
     end
-  
-    # def destroy
-    #   @unit = Unit.find(params[:id])
-    #   if @unit.officers.exists?
-    #     redirect_to units_path, alert: 'Unit cannot be removed while it has officers assigned.'
-    #   else
-    #     @unit.destroy
-    #     flash[:notice] = "Removed #{@unit.name} from the system."
-    #     redirect_to units_path
-    #   end
-    #     # @unit = Unit.find(params[:id])
-    #     # @unit.destroy
-    #     # flash[:notice] = "Removed #{@unit.name} from the system."
-    #     # redirect_to units_path
-    # end
 
     def destroy
         if @unit.destroy
           redirect_to units_path, notice: "Removed #{@unit.name} from the system."
         else
+          @active_units = Unit.where(active: true)
+          @inactive_units = Unit.where(active: false)
           render :index
         end
       end

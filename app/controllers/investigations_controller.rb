@@ -46,8 +46,8 @@ class InvestigationsController < ApplicationController
           flash[:notice] = "Investigation has been closed."
           redirect_to investigations_path
         else
-          flash[:error] = "Investigation could not be closed."
-          render :show
+          # flash[:error] = "Investigation could not be closed."
+          # render :show
         end
     end
       

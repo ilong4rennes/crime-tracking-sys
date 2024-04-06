@@ -16,6 +16,18 @@
 
     </header>
     <main>
+      <% if logged_in? %>
+        <%= link_to 'Investigations', investigations_path %>
+        <%= link_to 'Officers', officers_path %>
+        <%= link_to 'Units', units_path %>
+        <% if session[:officer_id] %>
+          <%= link_to 'Logout', logout_path %>
+        <% end %>
+      <% end %>
+
+      <% flash.each do |key, value| %>
+        <div class="<%= key %>"><%= value %></div>
+      <% end %>
 
       <%= yield %>
 
@@ -23,4 +35,8 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>   
   </body>
+
+  <footer>
+    <p>Webmaster: Amanda Lu</p>
+  </footer>
 </html>

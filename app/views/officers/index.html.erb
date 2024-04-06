@@ -1,0 +1,18 @@
+<h1>Active Officers in GCPD</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @active_officers.each do |officer| %>
+      <tr>
+        <td><%= link_to "#{officer.last_name}, #{officer.first_name}", officer_path(officer) %></td>
+        <td><%= officer.rank %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

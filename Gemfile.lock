@@ -6,6 +6,14 @@ GIT
       activemodel (>= 7.0.0, < 8)
       timeliness (>= 0.3.10, < 1)
 
+GIT
+  remote: https://github.com/mmotherwell/best_in_place
+  revision: 88eb3052623a9a6cd346864d2aca05021c2f80d0
+  specs:
+    best_in_place (3.1.1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -376,6 +384,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  best_in_place!
   bootsnap
   cancancan
   capybara
