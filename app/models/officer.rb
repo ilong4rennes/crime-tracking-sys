@@ -55,6 +55,11 @@ class Officer < ApplicationRecord
     current
   end
 
+  def formatted_ssn
+    # ssn.gsub(/(\d{3})(\d{2})(\d{4})/, '\1-\2-\3')
+    ssn.insert(3, '-').insert(6, '-')
+  end
+
   # def can_be_destroyed?
   #   # Example condition: an officer cannot be destroyed if they have current assignments
   #   assignments.where(end_date: nil).empty?
