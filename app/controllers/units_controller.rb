@@ -27,11 +27,13 @@ class UnitsController < ApplicationController
     end
   
     def edit
+      @unit = Unit.find(params[:id])
     end
   
     def update
+      @unit = Unit.find(params[:id])
       if @unit.update(unit_params)
-        redirect_to unit_path(@unit)
+        redirect_to unit_path(@unit), notice: 'Updated unit information'
       else
         render :edit
       end
