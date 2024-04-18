@@ -28,7 +28,9 @@ class OfficersController < ApplicationController
       end
     end
   
-    def edit; end
+    def edit
+      @officer = Officer.find(params[:id])
+    end
   
     def update
       if @officer.update(officer_params)

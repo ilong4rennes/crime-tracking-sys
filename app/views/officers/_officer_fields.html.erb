@@ -1,3 +1,13 @@
+<%= f.input :first_name, label_html: { class: 'active' }, required: true, autofocus: true, input_html: { id: 'officer_first_name' } %>
+<%= f.input :last_name, label_html: { class: 'active' }, required: true, input_html: { id: 'officer_last_name' } %>
+<%= f.label :rank %>
+<%= f.select :rank, ['Officer', 'Sergeant', 'Detective', 'Detective Sergeant', 'Lieutenant', 'Captain', 'Commissioner'], {}, { id: 'officer_rank', disabled: false } %>
+<%= f.collection_select :unit_id, Unit.all, :id, :name, {}, { class: 'select', id: 'officer_unit_id' } %>
+<%= f.input :ssn, label_html: { class: 'active' }, required: true, input_html: { id: 'officer_ssn' } %>
+<%= f.select :role, Officer.roles.keys.map { |role| [role.titleize, role] }, {}, { id: 'officer_role' } %>
+
+
+
 <%= f.input :username, label_html: { class: 'active' } %>
 <%= f.input :password, label_html: { class: 'active' } %>
 <%= f.input :password_confirmation, label_html: { class: 'active' } %>
