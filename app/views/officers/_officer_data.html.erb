@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-content">
-    <h5><%= best_in_place @officer, :first_name, as: :input %> 
-        <%= best_in_place @officer, :last_name, as: :input %></h5><br />
+    <h3><%= best_in_place @officer, :first_name, as: :input %> 
+        <%= best_in_place @officer, :last_name, as: :input %></h3><br />
 
     <b>Current unit:&nbsp;&nbsp;</b><br>
       <%= @officer.unit.name %><br /><br />
@@ -16,22 +16,28 @@
       <%= @officer.active ? "Yes" : "No" %>
       <br>
     
+    <div id="current_assignments" class="card">
     <% if @current_assignments.any? %>
         <b>Current Assignments:&nbsp;&nbsp;</b>
         <% @current_assignments.each do |assignment| %>
-            <%= assignment.investigation.title %><br />
+            <%= assignment.investigation.title %> Starting <br />
         <% end %><br />
     <%= will_paginate @current_assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>   
     <% end %>
+    </div>
 
+    <div id="past_assignments" class="card">
     <% if @past_assignments.any? %>
         <b>Past Assignments:&nbsp;&nbsp;</b>
         <% @past_assignments.each do |assignment| %>
-            <%= assignment.investigation.title %><br />
+            <%= assignment.investigation.title %> Ending <br />
         <% end %><br />
     <%= will_paginate @past_assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
     <% end %>
-
+    </div>
 
   </div>
+
+  <%= link_to 'Add a new assignment', new_assignment_path(officer_id: @officer.id) %>
+
 </div>

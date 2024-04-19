@@ -1,0 +1,12 @@
+<% if @officer.present? %>
+  <h2>New Assignment</h2>
+  <p>For Officer: <%= @officer.name %></p>
+    
+  <%= form_for @assignment do |f| %>
+    <%= f.collection_select :investigation_id, Investigation.all, :id, :title, {prompt: 'Select Investigation'}, {id: 'assignment_investigation_id'} %>
+    <%= f.hidden_field :officer_id, value: @officer.id %>
+    <%= f.submit 'Create Assignment' %>
+  <% end %>
+<% else %>
+  <p>Officer not found.</p>
+<% end %>

@@ -23,7 +23,10 @@ class UnitsController < ApplicationController
     def show
       @unit = Unit.find(params[:id])
       @officers = @unit.officers.paginate(page: params[:page], per_page: 15) 
-
+      @officer_card = @unit.officers.paginate(page: params[:page], per_page: 1) 
+      @open_investigations = @unit.number_of_unique_open_investigations
+      @closed_investigations = @unit.number_of_unique_closed_investigations
+      @cases_with_batman = @unit.number_of_unique_investigations_involving_batman
     end
   
     def edit

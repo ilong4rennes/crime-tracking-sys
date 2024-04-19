@@ -1,5 +1,5 @@
 <h1>Active Officers in <%= @unit.name %> Unit</h1>
-
+<div id="officers" class="card">
 <% if @officers.any? %>
   <table>
     <thead>
@@ -23,3 +23,13 @@
 <% else %>
   <p>There are no active officers currently in this unit.</p>
 <% end %>
+</div>
+
+<div id="stats" class="card">
+  <h2>Statistics for <%= @unit.name %> Unit</h2>
+  <p>Number of Active Offcers: <%= @officers.count %></p>
+  <p>Number of Open Cases: <%= @open_investigations %></p>
+  <p>Number of Closed Cases: <%= @closed_investigations %></p>
+  <p>Cases Involving Batman: <%= @cases_with_batman %></p>
+</div>
+
