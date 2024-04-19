@@ -1,35 +1,36 @@
 <h1>Active Officers in <%= @unit.name %> Unit</h1>
-<div id="officers" class="card">
-<% if @officers.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Rank</th>
-        <th>Active Assignments</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @officers.each do |officer| %>
-        <tr>
-          <td><%= officer.name %></td>
-          <td><%= officer.rank %></td>
-          <td><%= officer.assignments.current.count %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= will_paginate @officers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
-<% else %>
-  <p>There are no active officers currently in this unit.</p>
-<% end %>
-</div>
 
 <div id="stats" class="card">
   <h2>Statistics for <%= @unit.name %> Unit</h2>
-  <p>Number of Active Offcers: <%= @officers.count %></p>
-  <p>Number of Open Cases: <%= @open_investigations %></p>
-  <p>Number of Closed Cases: <%= @closed_investigations %></p>
-  <p>Cases Involving Batman: <%= @cases_with_batman %></p>
+  <p>Number of Active Officers: <%= @unit.number_of_active_officers %></p >
+  <p>Number of Open Cases:&nbsp;&nbsp;&nbsp;<%= @unit.number_of_unique_open_investigations %></p >
+  <p>Number of Closed Cases:&nbsp;&nbsp;&nbsp;<%= @unit.number_of_unique_closed_investigations %></p >
+  <p>Cases Involving Batman:&nbsp;&nbsp;&nbsp;<%= @unit.number_of_unique_investigations_involving_batman %></p >
 </div>
 
+<div id="officers" class="card">
+  <h2>Active Officers in <%= @unit.name %> Unit</h2>
+<% if @unit.officers.active.any? %>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rank</th>
+      <th>Active Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @officers.each do |officer| %>
+      <tr>
+        <td><%= officer.name %></td>
+        <td><%= officer.rank %></td>
+        <td><%= officer.assignments.current.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @officers, renderer: WillPaginate::ActionView::LinkRenderer %>
+<% else %>
+  <p>There are no active officers currently in this unit.</p >
+<% end %>
+</div>
