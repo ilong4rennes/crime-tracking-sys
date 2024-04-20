@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { get } from "../api";
 import InvestigationOverview from "./InvestigationOverview";
 import Crimes from "./Crimes";
+import CurrentAssignments from "./CurrentAssignments";
+import InvestigationNotes from "./InvestigationNotes";
 
 function Investigation({ investigationId }) {
   const [investigation, setInvestigation] = React.useState();
@@ -36,19 +38,35 @@ function Investigation({ investigationId }) {
           <InvestigationOverview investigation={investigation} />
           {/* JSX component */}
         </div>
+
         <div class="col s6">
-          {/* second component */}
-          <Crimes
-            crimes={investigationData.crimes}
+            {/* second component */}
+            <Crimes
+              crimes={investigationData.crimes}
+              investigationId={investigationId}
+            />
+            {/* also include how to editing and adding crimes */}
+            {/* passing in 1. crime objects 2. investigation id */}
+          </div>  
+
+        <div className="col s6">
+          <CurrentAssignments assignments={investigationData.current_assignments} />
+        </div>
+
+        <div className="col s6">
+          <InvestigationNotes 
+            notes={investigationData.notes} 
             investigationId={investigationId}
+            officerId={investigationData.notes.officer}
           />
-          {/* also include how to editing and adding crimes */}
-          {/* passing in 1. crime objects 2. investigatioin id */}
-        </div>  
+        </div>
+
+        <div className="col s6">
+          <InvestigationOverview investigation={investigation} />
+        </div>
+        
       </div>
 
-      
-      
     </>
   );
 }

@@ -33,7 +33,6 @@ Feature: Read units -- advanced
     # in a card with id "officers"
     Then I should see "Active Officers in Major Crimes Unit" within "#officers.card"
     And I should see "Blake, John"
-    Then show me the page
     And I should see "Previous"
     And I should see "Next"
     And I should not see "Sawyer, Maggie"

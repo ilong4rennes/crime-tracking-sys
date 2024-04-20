@@ -1,7 +1,6 @@
 <div class="card">
   <div class="card-content">
-    <h3><%= best_in_place @officer, :first_name, as: :input %> 
-        <%= best_in_place @officer, :last_name, as: :input %></h3><br />
+    <h3><%= @officer.proper_name %></h3>
 
     <b>Current unit:&nbsp;&nbsp;</b><br>
       <%= @officer.unit.name %><br /><br />
