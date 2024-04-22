@@ -1,7 +1,7 @@
-<h1>Active Officers in <%= @unit.name %> Unit</h1>
+<h2>Active Officers in <%= @unit.name %> Unit</h2>
 
 <div id="stats" class="card">
-  <h2>Statistics for <%= @unit.name %> Unit</h2>
+  <h4>Statistics for <%= @unit.name %> Unit</h4>
   <p>Number of Active Officers: <%= @unit.number_of_active_officers %></p >
   <p>Number of Open Cases:&nbsp;&nbsp;&nbsp;<%= @unit.number_of_unique_open_investigations %></p >
   <p>Number of Closed Cases:&nbsp;&nbsp;&nbsp;<%= @unit.number_of_unique_closed_investigations %></p >
@@ -9,7 +9,7 @@
 </div>
 
 <div id="officers" class="card">
-  <h2>Active Officers in <%= @unit.name %> Unit</h2>
+  <h4>Active Officers in <%= @unit.name %> Unit</h4>
 <% if @unit.officers.active.any? %>
   <table>
   <thead>
