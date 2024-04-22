@@ -1,3 +1,6 @@
+// This file is written with the help of Copilot 
+// Some part of the code is adapted from Crime.js and InvestigationOverview.js
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormattedDate from "./FormattedDate";

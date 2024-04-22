@@ -1,2 +1,26 @@
 ﻿File,Tool,Method_Name,Prompt(s)_Used
-ExampleFile,ChatGPT,ExampleMethod,My prompt was… Replace this row with your real first use of Gen AI
+cucumber,ChatGPT,view,"this is my new.html.erb [code] this is my form_structure [code], write the fields.html.erb for me"
+cucumber,ChatGPT,view,"I got this error message [error], where might be the issue? Fix them for me"
+cucumber,ChatGPT,view,"Now moving on to the edit feature, fix this error [error]"
+cucumber,ChatGPT,view,"I got these errors [errors] this is my offivers/new.html.erb [code] form structure are same as above, this is officer_fields [code] fix the errors above"
+cucumber,ChatGPT,view,"that is how I defined in models, [error], fix this error"
+cucumber,ChatGPT,view,I defined role in offiver model this way.
+cucumber,ChatGPT,view,[code] follow this pattern
+react,ChatGPT,/,this is my investigation.js code: [code]. why I change this but there is nothing change in my web app?
+react,ChatGPT,/,"i intenionally cahnge the h4 content, but there is no change on the web application, tell me why"
+react,ChatGPT,/,explain this code in simplest words from beginning to end
+react,ChatGPT,/,where and how does the code define currentCrimes? explain in simplest words
+react,ChatGPT,/,now I got this error from the console when inspecting the page. Can you tell me what is the bug?
+react,ChatGPT,/,this is my investigation api controller. Help me revise my data passing in investigation.js for the assginments.
+react,ChatGPT,/,"everything else is fine, but i cannot save the note. revise my code to enable save."
+react,ChatGPT,/,"when i click on save there is still no reaction, here is the error message: [error]"
+react,ChatGPT,/,where do we need to change about controller?
+react,ChatGPT,/,"now when the user enters a note and presses save, the text of the note, the current date, and the name of the user are added to the notes list and the form will then disappear. now we are saving the content, but we are not saving the officer id. we should pass in the current user's id. modify my existing code: "
+react,ChatGPT,/,"debug this. say i only want to show the non-dynamic aspect, let us not focus on the button first"
+react,ChatGPT,/,"for the select bar, i need to be able to choose from the criminals data this is the erd diagram. now my problem is that the selection bar shows 'no option'. revise my code"
+react,ChatGPT,/,"still got the same error, think of other ways, that might cause this error"
+react,ChatGPT,/,"explain this ""This object has a key investigation_note"" in what file can i find the key?"
+react,ChatGPT,/,my code is not passing in criminal data correctly when adding new suspects. where might be the issue?
+react,ChatGPT,/,"this is my code now: modify my suspects function to make it pair up with the suspect editor, to make a drop button."
+react,ChatGPT,/,"<p> - Dropped: {FormattedDate(suspectData.dropped_on)} </p> change this line to implement this logic: if dropped on is null, put N/A, otherwise just put the date. "
+react,ChatGPT,/,"implement the logic, only if the dropped_on is null, show the drop button, otherwise dont show."

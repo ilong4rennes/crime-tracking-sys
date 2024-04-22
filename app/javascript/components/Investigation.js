@@ -5,6 +5,8 @@ import InvestigationOverview from "./InvestigationOverview";
 import Crimes from "./Crimes";
 import CurrentAssignments from "./CurrentAssignments";
 import InvestigationNotes from "./InvestigationNotes";
+import Suspects from './Suspects';
+
 
 function Investigation({ investigationId }) {
   const [investigation, setInvestigation] = React.useState();
@@ -62,7 +64,10 @@ function Investigation({ investigationId }) {
         </div>
 
         <div className="col s6">
-          <InvestigationOverview investigation={investigation} />
+          <Suspects 
+            suspects={investigationData.suspects} 
+            investigationId={investigationId} 
+          />
         </div>
         
       </div>
